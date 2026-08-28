@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Rsdoctor Trace",
+  "version": "0.1.0",
+  "description": "Capture Chrome performance traces from the current authenticated tab.",
+  "minimum_chrome_version": "116",
+  "permissions": ["activeTab", "debugger", "storage"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "http://[::1]/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Rsdoctor Trace",
+    "default_popup": "popup.html"
+  }
+}

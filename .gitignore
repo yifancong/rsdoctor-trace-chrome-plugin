@@ -1,0 +1,6 @@
+node_modules/
+packages/*/build/
+packages/*/dist/
+.rsdoctor-performance/
+.DS_Store
+*.log

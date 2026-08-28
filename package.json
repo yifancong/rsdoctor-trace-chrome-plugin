@@ -1,0 +1,27 @@
+{
+  "name": "rsdoctor-trace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Capture Chrome performance traces from authenticated tabs for Rsdoctor analysis.",
+  "type": "module",
+  "bin": {
+    "rsdoctor-trace": "packages/receiver/dist/cli.js"
+  },
+  "scripts": {
+    "build": "pnpm run build:receiver && pnpm run build:extension",
+    "build:extension": "tsc -p packages/extension/tsconfig.json && node scripts/build-extension.mjs",
+    "build:receiver": "tsc -p packages/receiver/tsconfig.json",
+    "receiver": "node packages/receiver/dist/cli.js",
+    "test": "pnpm run build:receiver && node --test packages/receiver/test/*.test.mjs",
+    "typecheck": "tsc -p packages/receiver/tsconfig.json --noEmit && tsc -p packages/extension/tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "devDependencies": {
+    "@types/chrome": "^0.1.6",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.2"
+  }
+}
